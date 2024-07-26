@@ -3,43 +3,16 @@ import Image from "next/image";
 import { ConnectBtn } from "./components/connectButton";
 import Profile from "./components/profile";
 import GradientButton from "./components/GradientButton";
-import PresaleABI from "../assets/abi/presale.json";
+import PresaleABI from  "../app/assets/abi/presale.json";
 import { estimateGas, writeContract, waitForTransactionReceipt, getAccount } from "@wagmi/core"
 import { encodeFunctionData, parseUnits } from 'viem'
 import {config} from "../lib/config";
-import { useAccount, useSimulateContract } from "wagmi";
-import { createConfig, http, getConnectorClient  } from '@wagmi/core';
-import { bscTestnet } from '@wagmi/core/chains';
-import { createClient } from "viem";
-import { metaMask,  } from 'wagmi/connectors'
+
 
 
 export default function Home() {
- 
-  // const handleBuyBtn = () => {
-  //         console.log("fly")
-  //         alert('buytoken');
-  //     };
-  const { chain } = useAccount();
-  
-  // const config1 = createConfig({
-  //   chains: [bscTestnet],
-  //   client({ chain }) {
-  //     return createClient({ chain, transport: http() })
-  //   },
-  //   connectors: [
-  //     metaMask(),
-  //   ],
-  // });
-  
-  // const client =  getConnectorClient(config1, {
-  //   chainId :bscTestnet.id
-  // })
-
-  // console.log("fly_client", client)
-  const {address} = getAccount(config);
   const handleBuyBtn = async () => {
-    console.log("fly_account", address)
+    // console.log("fly_account", address)
     try{
       // console.log("fly_config", config1);
       let data = {
@@ -87,7 +60,7 @@ export default function Home() {
           priority
         />
       </div>
-      <GradientButton name="Buy Token" onClick={handleBuyBtn} />
+      <GradientButton name="Buy1" onClick={handleBuyBtn} />
 
       <Profile />
     </main>

@@ -6,7 +6,7 @@ import {
   useChainModal,
 } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
-import { emojiAvatarForAddress } from "@/lib/emojiAvatarForAddress";
+import { emojiAvatarForAddress } from "@/lib/emojiAvatarForAddress"; 
 
 export const ConnectBtn = () => {
   const { isConnecting, address, isConnected, chain } = useAccount();
@@ -29,13 +29,7 @@ export const ConnectBtn = () => {
     return (
       <button
         className="btn"
-        onClick={async () => {
-          // Disconnecting wallet first because sometimes when is connected but the user is not connected
-          if (isConnected) {
-            disconnect();
-          }
-          openConnectModal?.();
-        }}
+        onClick={openConnectModal}
         disabled={isConnecting}
       >
         { isConnecting ? 'Connecting...' : 'Connect your wallet' }
